@@ -715,7 +715,7 @@ for (i in 1:10){
     write.csv(result_WCSPP_risk_30, file = file.path(output_dir, "result_WCSPP_risk_30_20_4.csv"))
   }
 }
-stopCluster(cl)
+
 
 
 #20-6
@@ -885,7 +885,7 @@ for (i in 1:10){
     write.csv(result_WCSPP_risk_30, file = file.path(output_dir, "result_WCSPP_risk_30_20_6.csv"))
   }
 }
-stopCluster(cl)
+
 
 #40-6
 # Generate Obstacle information
@@ -1055,7 +1055,7 @@ for (i in 1:10){
 
   }
 }
-stopCluster(cl)
+
 
 
 
@@ -1229,7 +1229,7 @@ for (i in 1:10){
 
   }
 }
-stopCluster(cl)
+
 
 
 #80-8
@@ -1402,7 +1402,7 @@ for (i in 1:10){
 
   }
 }
-stopCluster(cl)
+
 
 
 
@@ -1576,4 +1576,4 @@ for (i in 1:10){
 
   }
 }
-stopCluster(cl)
+
