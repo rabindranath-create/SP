@@ -717,16 +717,7 @@ WCSPP_Node_risk_C <- function(obs_info){
 }
 
 ##
-library(parallel)
-cl <- makeCluster(20)
-clusterExport (cl, varlist = c("Graph_Discretized", "Intersect_Obs","Update_graph_intersect",
-                               "Index_Coordinates","Dist_Euclidean","Lattice_Vertices",
-                               "Simple_Node_Eliminate_modified2","WCSPP_Initial_modified"))
-clusterEvalQ(cl, {
-  library(igraph)
-  library(spatstat)
-  library(spatial)
-})
+
 
 result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 
@@ -905,16 +896,7 @@ WCSPP_Node_risk_C <- function(obs_info){
 }
 
 ##
-library(parallel)
-cl <- makeCluster(20)
-clusterExport (cl, varlist = c("Graph_Discretized", "Intersect_Obs","Update_graph_intersect",
-                               "Index_Coordinates","Dist_Euclidean","Lattice_Vertices",
-                               "Simple_Node_Eliminate_modified2","WCSPP_Initial_modified"))
-clusterEvalQ(cl, {
-  library(igraph)
-  library(spatstat)
-  library(spatial)
-})
+
 
 result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_20_6.csv"))
@@ -1096,16 +1078,7 @@ WCSPP_Node_risk_C <- function(obs_info){
 }
 
 ##
-library(parallel)
-cl <- makeCluster(20)
-clusterExport (cl, varlist = c("Graph_Discretized", "Intersect_Obs","Update_graph_intersect",
-                               "Index_Coordinates","Dist_Euclidean","Lattice_Vertices",
-                               "Simple_Node_Eliminate_modified2","WCSPP_Initial_modified"))
-clusterEvalQ(cl, {
-  library(igraph)
-  library(spatstat)
-  library(spatial)
-})
+
 
 result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_40_6.csv"))
@@ -1283,16 +1256,7 @@ WCSPP_Node_risk_C <- function(obs_info){
 }
 
 ##
-library(parallel)
-cl <- makeCluster(20)
-clusterExport (cl, varlist = c("Graph_Discretized", "Intersect_Obs","Update_graph_intersect",
-                               "Index_Coordinates","Dist_Euclidean","Lattice_Vertices",
-                               "Simple_Node_Eliminate_modified2","WCSPP_Initial_modified"))
-clusterEvalQ(cl, {
-  library(igraph)
-  library(spatstat)
-  library(spatial)
-})
+
 
 result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_40_8.csv"))
@@ -1466,16 +1430,7 @@ WCSPP_Node_risk_C <- function(obs_info){
 }
 
 ##
-library(parallel)
-cl <- makeCluster(20)
-clusterExport (cl, varlist = c("Graph_Discretized", "Intersect_Obs","Update_graph_intersect",
-                               "Index_Coordinates","Dist_Euclidean","Lattice_Vertices",
-                               "Simple_Node_Eliminate_modified2","WCSPP_Initial_modified"))
-clusterEvalQ(cl, {
-  library(igraph)
-  library(spatstat)
-  library(spatial)
-})
+
 
 result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_80_8.csv"))
@@ -1652,16 +1607,6 @@ WCSPP_Node_risk_C <- function(obs_info){
 }
 
 ##
-library(parallel)
-cl <- makeCluster(20)
-clusterExport (cl, varlist = c("Graph_Discretized", "Intersect_Obs","Update_graph_intersect",
-                               "Index_Coordinates","Dist_Euclidean","Lattice_Vertices",
-                               "Simple_Node_Eliminate_modified2","WCSPP_Initial_modified"))
-clusterEvalQ(cl, {
-  library(igraph)
-  library(spatstat)
-  library(spatial)
-})
 
 result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_80_10.csv"))
