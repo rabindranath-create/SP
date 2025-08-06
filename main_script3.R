@@ -724,7 +724,7 @@ result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_20_4.csv"))
 for (i in 1:10){
   obs_info_all_use <- obs_info_all[(10*(i-1)+1):(10*i)]
-  result <- parLapply(cl,obs_info_all_use,WCSPP_Node_risk_C)
+  result <- WCSPP_Node_risk_C(obs_info_all[[i]])
   for (j in 1:10){
     result_WCSPP_risk_C[10*(i-1)+j,1] <- result[[j]]$Length_total
     result_WCSPP_risk_C[10*(i-1)+j,2] <- result[[j]]$Cost_total
@@ -901,7 +901,7 @@ result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_20_6.csv"))
 for (i in 1:10){
   obs_info_all_use <- obs_info_all[(10*(i-1)+1):(10*i)]
-  result <- parLapply(cl,obs_info_all_use,WCSPP_Node_risk_C)
+  result <- WCSPP_Node_risk_C(obs_info_all[[i]])
   for (j in 1:10){
     result_WCSPP_risk_C[10*(i-1)+j,1] <- result[[j]]$Length_total
     result_WCSPP_risk_C[10*(i-1)+j,2] <- result[[j]]$Cost_total
@@ -1083,7 +1083,7 @@ result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_40_6.csv"))
 for (i in 1:10){
   obs_info_all_use <- obs_info_all[(10*(i-1)+1):(10*i)]
-  result <- parLapply(cl,obs_info_all_use,WCSPP_Node_risk_C)
+  result <- WCSPP_Node_risk_C(obs_info_all[[i]])
   for (j in 1:10){
     result_WCSPP_risk_C[10*(i-1)+j,1] <- result[[j]]$Length_total
     result_WCSPP_risk_C[10*(i-1)+j,2] <- result[[j]]$Cost_total
@@ -1261,7 +1261,7 @@ result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_40_8.csv"))
 for (i in 1:10){
   obs_info_all_use <- obs_info_all[(10*(i-1)+1):(10*i)]
-  result <- parLapply(cl,obs_info_all_use,WCSPP_Node_risk_C)
+  result <- WCSPP_Node_risk_C(obs_info_all[[i]])
   for (j in 1:10){
     result_WCSPP_risk_C[10*(i-1)+j,1] <- result[[j]]$Length_total
     result_WCSPP_risk_C[10*(i-1)+j,2] <- result[[j]]$Cost_total
@@ -1435,7 +1435,7 @@ result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_80_8.csv"))
 for (i in 1:10){
   obs_info_all_use <- obs_info_all[(10*(i-1)+1):(10*i)]
-  result <- parLapply(cl,obs_info_all_use,WCSPP_Node_risk_C)
+  result <- WCSPP_Node_risk_C(obs_info_all[[i]])
   for (j in 1:10){
     result_WCSPP_risk_C[10*(i-1)+j,1] <- result[[j]]$Length_total
     result_WCSPP_risk_C[10*(i-1)+j,2] <- result[[j]]$Cost_total
@@ -1611,7 +1611,7 @@ result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_80_10.csv"))
 for (i in 1:10){
   obs_info_all_use <- obs_info_all[(10*(i-1)+1):(10*i)]
-  result <- parLapply(cl,obs_info_all_use,WCSPP_Node_risk_C)
+  result <- WCSPP_Node_risk_C(obs_info_all[[i]])
   for (j in 1:10){
     result_WCSPP_risk_C[10*(i-1)+j,1] <- result[[j]]$Length_total
     result_WCSPP_risk_C[10*(i-1)+j,2] <- result[[j]]$Cost_total
