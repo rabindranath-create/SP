@@ -726,7 +726,7 @@ for (i in 1:10){
     write.csv(result_WCSPP_risk_15, file = file.path(output_dir, "result_WCSPP_risk_15_20_4.csv"))
   }
 }
-stopCluster(cl)
+
 
 
 
@@ -897,7 +897,7 @@ for (i in 1:10){
     write.csv(result_WCSPP_risk_15, file = file.path(output_dir, "result_WCSPP_risk_15_20_6.csv"))
   }
 }
-stopCluster(cl)
+
 
 
 
@@ -1071,7 +1071,7 @@ for (i in 1:10){
     write.csv(result_WCSPP_risk_15, file = file.path(output_dir, "result_WCSPP_risk_15_40_6.csv"))
   }
 }
-stopCluster(cl)
+
 
 
 
@@ -1243,7 +1243,7 @@ for (i in 1:10){
     write.csv(result_WCSPP_risk_15, file = file.path(output_dir, "result_WCSPP_risk_15_40_8.csv"))
   }
 }
-stopCluster(cl)
+
 
 
 
@@ -1415,7 +1415,7 @@ for (i in 1:10){
     write.csv(result_WCSPP_risk_15, file = file.path(output_dir, "result_WCSPP_risk_15_80_8.csv"))
   }
 }
-stopCluster(cl)
+
 
 
 
@@ -1587,4 +1587,4 @@ for (i in 1:10){
    write.csv(result_WCSPP_risk_15, file = file.path(output_dir, "result_WCSPP_risk_15_80_10.csv"))
   }
 }
-stopCluster(cl)
+
