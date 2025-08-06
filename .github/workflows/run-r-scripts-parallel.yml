@@ -20,7 +20,7 @@ jobs:
 
       - name: Install required R packages
         run: |
-          Rscript -e 'install.packages(c("spatial", "spatstat", "igraph", "dplyr", "parallel"), repos = "https://cloud.r-project.org")'
+          Rscript -e 'install.packages(c("spatial", "spatstat", "igraph", "dplyr"), repos = "https://cloud.r-project.org")'
 
       - name: Run R script main_script${{ matrix.script }}.R
         run: Rscript main_script${{ matrix.script }}.R
