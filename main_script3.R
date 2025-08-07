@@ -717,26 +717,38 @@ WCSPP_Node_risk_C <- function(obs_info){
 }
 
 ##
+library(parallel)
+n_cores <- detectCores()
+cl <- makeCluster(n_cores)
+clusterExport (cl, varlist = c("Graph_Discretized", "Intersect_Obs","Update_graph_intersect",
+                               "Index_Coordinates","Dist_Euclidean","Lattice_Vertices",
+                               "Simple_Node_Eliminate_modified2","WCSPP_Initial_modified"))
+clusterEvalQ(cl, {
+  library(igraph)
+  library(spatstat)
+  library(spatial)
+})
 
 
 result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_20_4.csv"))
-for (i in 1:100){
-  
-  result <- WCSPP_Node_risk_C(obs_info_all[[i]])
-
-    result_WCSPP_risk_C[i ,1] <- result[[i]]$Length_total
-    result_WCSPP_risk_C[i ,2] <- result[[i]]$Cost_total
-    result_WCSPP_risk_C[i ,3] <- length(result[[i]]$Disambiguate_state)
-    result_WCSPP_risk_C[i ,4] <- result[[i]]$LU_diff[1]
-    result_WCSPP_risk_C[i ,5] <- result[[i]]$LU_diff[2]
-    result_WCSPP_risk_C[i ,6] <- result[[i]]$LU_diff[3]
-    result_WCSPP_risk_C[i ,7] <- result[[i]]$LU_diff[4]
+for (i in 1:10){
+  obs_info_all_use <- obs_info_all[(10*(i-1)+1):(10*i)]
+  result <- parLapply(cl,obs_info_all_use,WCSPP_Node_risk_C)
+  for (j in 1:10){
+    result_WCSPP_risk_C[10*(i-1)+j,1] <- result[[j]]$Length_total
+    result_WCSPP_risk_C[10*(i-1)+j,2] <- result[[j]]$Cost_total
+    result_WCSPP_risk_C[10*(i-1)+j,3] <- length(result[[j]]$Disambiguate_state)
+    result_WCSPP_risk_C[10*(i-1)+j,4] <- result[[j]]$LU_diff[1]
+    result_WCSPP_risk_C[10*(i-1)+j,5] <- result[[j]]$LU_diff[2]
+    result_WCSPP_risk_C[10*(i-1)+j,6] <- result[[j]]$LU_diff[3]
+    result_WCSPP_risk_C[10*(i-1)+j,7] <- result[[j]]$LU_diff[4]
     
     write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_20_4.csv"))
-  
+  }
 }
+stopCluster(cl)
 
 
 
@@ -895,25 +907,36 @@ WCSPP_Node_risk_C <- function(obs_info){
 }
 
 ##
+library(parallel)
+n_cores <- detectCores()
+cl <- makeCluster(n_cores)
+clusterExport (cl, varlist = c("Graph_Discretized", "Intersect_Obs","Update_graph_intersect",
+                               "Index_Coordinates","Dist_Euclidean","Lattice_Vertices",
+                               "Simple_Node_Eliminate_modified2","WCSPP_Initial_modified"))
+clusterEvalQ(cl, {
+  library(igraph)
+  library(spatstat)
+  library(spatial)
+})
 
 
 result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_20_6.csv"))
-for (i in 1:100){
-  
-  result <- WCSPP_Node_risk_C(obs_info_all[[i]])
-  
-    result_WCSPP_risk_C[i ,1] <- result[[i]]$Length_total
-    result_WCSPP_risk_C[i ,2] <- result[[i]]$Cost_total
-    result_WCSPP_risk_C[i ,3] <- length(result[[i]]$Disambiguate_state)
-    result_WCSPP_risk_C[i ,4] <- result[[i]]$LU_diff[1]
-    result_WCSPP_risk_C[i ,5] <- result[[i]]$LU_diff[2]
-    result_WCSPP_risk_C[i ,6] <- result[[i]]$LU_diff[3]
-    result_WCSPP_risk_C[i ,7] <- result[[i]]$LU_diff[4]
+for (i in 1:10){
+  obs_info_all_use <- obs_info_all[(10*(i-1)+1):(10*i)]
+  result <- parLapply(cl,obs_info_all_use,WCSPP_Node_risk_C)
+  for (j in 1:10){
+    result_WCSPP_risk_C[10*(i-1)+j,1] <- result[[j]]$Length_total
+    result_WCSPP_risk_C[10*(i-1)+j,2] <- result[[j]]$Cost_total
+    result_WCSPP_risk_C[10*(i-1)+j,3] <- length(result[[j]]$Disambiguate_state)
+    result_WCSPP_risk_C[10*(i-1)+j,4] <- result[[j]]$LU_diff[1]
+    result_WCSPP_risk_C[10*(i-1)+j,5] <- result[[j]]$LU_diff[2]
+    result_WCSPP_risk_C[10*(i-1)+j,6] <- result[[j]]$LU_diff[3]
+    result_WCSPP_risk_C[10*(i-1)+j,7] <- result[[j]]$LU_diff[4]
     write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_20_6.csv"))
-  
+  }
 }
-
+stopCluster(cl)
 
 
 
@@ -1077,25 +1100,35 @@ WCSPP_Node_risk_C <- function(obs_info){
 }
 
 ##
-
+library(parallel)
+n_cores <- detectCores()
+cl <- makeCluster(n_cores)
+clusterExport (cl, varlist = c("Graph_Discretized", "Intersect_Obs","Update_graph_intersect",
+                               "Index_Coordinates","Dist_Euclidean","Lattice_Vertices",
+                               "Simple_Node_Eliminate_modified2","WCSPP_Initial_modified"))
+clusterEvalQ(cl, {
+  library(igraph)
+  library(spatstat)
+  library(spatial)
+})
 
 result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_40_6.csv"))
-for (i in 1:100){
-  
-  result <- WCSPP_Node_risk_C(obs_info_all[[i]])
-
-    result_WCSPP_risk_C[i ,1] <- result[[i]]$Length_total
-    result_WCSPP_risk_C[i ,2] <- result[[i]]$Cost_total
-    result_WCSPP_risk_C[i ,3] <- length(result[[i]]$Disambiguate_state)
-    result_WCSPP_risk_C[i ,4] <- result[[i]]$LU_diff[1]
-    result_WCSPP_risk_C[i ,5] <- result[[i]]$LU_diff[2]
-    result_WCSPP_risk_C[i ,6] <- result[[i]]$LU_diff[3]
-    result_WCSPP_risk_C[i ,7] <- result[[i]]$LU_diff[4]
+for (i in 1:10){
+  obs_info_all_use <- obs_info_all[(10*(i-1)+1):(10*i)]
+  result <- parLapply(cl,obs_info_all_use,WCSPP_Node_risk_C)
+  for (j in 1:10){
+    result_WCSPP_risk_C[10*(i-1)+j,1] <- result[[j]]$Length_total
+    result_WCSPP_risk_C[10*(i-1)+j,2] <- result[[j]]$Cost_total
+    result_WCSPP_risk_C[10*(i-1)+j,3] <- length(result[[j]]$Disambiguate_state)
+    result_WCSPP_risk_C[10*(i-1)+j,4] <- result[[j]]$LU_diff[1]
+    result_WCSPP_risk_C[10*(i-1)+j,5] <- result[[j]]$LU_diff[2]
+    result_WCSPP_risk_C[10*(i-1)+j,6] <- result[[j]]$LU_diff[3]
+    result_WCSPP_risk_C[10*(i-1)+j,7] <- result[[j]]$LU_diff[4]
     write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_40_6.csv"))
-  
+  }
 }
-
+stopCluster(cl)
 
 
 
@@ -1255,25 +1288,35 @@ WCSPP_Node_risk_C <- function(obs_info){
 }
 
 ##
-
+library(parallel)
+n_cores <- detectCores()
+cl <- makeCluster(n_cores)
+clusterExport (cl, varlist = c("Graph_Discretized", "Intersect_Obs","Update_graph_intersect",
+                               "Index_Coordinates","Dist_Euclidean","Lattice_Vertices",
+                               "Simple_Node_Eliminate_modified2","WCSPP_Initial_modified"))
+clusterEvalQ(cl, {
+  library(igraph)
+  library(spatstat)
+  library(spatial)
+})
 
 result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_40_8.csv"))
-for (i in 1:100){
-  
-  result <- WCSPP_Node_risk_C(obs_info_all[[i]])
-  
-    result_WCSPP_risk_C[i ,1] <- result[[i]]$Length_total
-    result_WCSPP_risk_C[i ,2] <- result[[i]]$Cost_total
-    result_WCSPP_risk_C[i ,3] <- length(result[[i]]$Disambiguate_state)
-    result_WCSPP_risk_C[i ,4] <- result[[i]]$LU_diff[1]
-    result_WCSPP_risk_C[i ,5] <- result[[i]]$LU_diff[2]
-    result_WCSPP_risk_C[i ,6] <- result[[i]]$LU_diff[3]
-    result_WCSPP_risk_C[i ,7] <- result[[i]]$LU_diff[4]
+for (i in 1:10){
+  obs_info_all_use <- obs_info_all[(10*(i-1)+1):(10*i)]
+  result <- parLapply(cl,obs_info_all_use,WCSPP_Node_risk_C)
+  for (j in 1:10){
+    result_WCSPP_risk_C[10*(i-1)+j,1] <- result[[j]]$Length_total
+    result_WCSPP_risk_C[10*(i-1)+j,2] <- result[[j]]$Cost_total
+    result_WCSPP_risk_C[10*(i-1)+j,3] <- length(result[[j]]$Disambiguate_state)
+    result_WCSPP_risk_C[10*(i-1)+j,4] <- result[[j]]$LU_diff[1]
+    result_WCSPP_risk_C[10*(i-1)+j,5] <- result[[j]]$LU_diff[2]
+    result_WCSPP_risk_C[10*(i-1)+j,6] <- result[[j]]$LU_diff[3]
+    result_WCSPP_risk_C[10*(i-1)+j,7] <- result[[j]]$LU_diff[4]
     write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_40_8.csv"))
-  
+  }
 }
-
+stopCluster(cl)
 
 
 
@@ -1429,25 +1472,35 @@ WCSPP_Node_risk_C <- function(obs_info){
 }
 
 ##
-
+library(parallel)
+n_cores <- detectCores()
+cl <- makeCluster(n_cores)
+clusterExport (cl, varlist = c("Graph_Discretized", "Intersect_Obs","Update_graph_intersect",
+                               "Index_Coordinates","Dist_Euclidean","Lattice_Vertices",
+                               "Simple_Node_Eliminate_modified2","WCSPP_Initial_modified"))
+clusterEvalQ(cl, {
+  library(igraph)
+  library(spatstat)
+  library(spatial)
+})
 
 result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_80_8.csv"))
-for (i in 1:100){
-  
-  result <- WCSPP_Node_risk_C(obs_info_all[[i]])
-
-    result_WCSPP_risk_C[i ,1] <- result[[i]]$Length_total
-    result_WCSPP_risk_C[i ,2] <- result[[i]]$Cost_total
-    result_WCSPP_risk_C[i ,3] <- length(result[[i]]$Disambiguate_state)
-    result_WCSPP_risk_C[i ,4] <- result[[i]]$LU_diff[1]
-    result_WCSPP_risk_C[i ,5] <- result[[i]]$LU_diff[2]
-    result_WCSPP_risk_C[i ,6] <- result[[i]]$LU_diff[3]
-    result_WCSPP_risk_C[i ,7] <- result[[i]]$LU_diff[4]
+for (i in 1:10){
+  obs_info_all_use <- obs_info_all[(10*(i-1)+1):(10*i)]
+  result <- parLapply(cl,obs_info_all_use,WCSPP_Node_risk_C)
+  for (j in 1:10){
+    result_WCSPP_risk_C[10*(i-1)+j,1] <- result[[j]]$Length_total
+    result_WCSPP_risk_C[10*(i-1)+j,2] <- result[[j]]$Cost_total
+    result_WCSPP_risk_C[10*(i-1)+j,3] <- length(result[[j]]$Disambiguate_state)
+    result_WCSPP_risk_C[10*(i-1)+j,4] <- result[[j]]$LU_diff[1]
+    result_WCSPP_risk_C[10*(i-1)+j,5] <- result[[j]]$LU_diff[2]
+    result_WCSPP_risk_C[10*(i-1)+j,6] <- result[[j]]$LU_diff[3]
+    result_WCSPP_risk_C[10*(i-1)+j,7] <- result[[j]]$LU_diff[4]
     write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_80_8.csv"))
-  
+  }
 }
-
+stopCluster(cl)
 
 
 
@@ -1606,23 +1659,34 @@ WCSPP_Node_risk_C <- function(obs_info){
 }
 
 ##
+library(parallel)
+n_cores <- detectCores()
+cl <- makeCluster(n_cores)
+clusterExport (cl, varlist = c("Graph_Discretized", "Intersect_Obs","Update_graph_intersect",
+                               "Index_Coordinates","Dist_Euclidean","Lattice_Vertices",
+                               "Simple_Node_Eliminate_modified2","WCSPP_Initial_modified"))
+clusterEvalQ(cl, {
+  library(igraph)
+  library(spatstat)
+  library(spatial)
+})
 
 result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
 write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_80_10.csv"))
-for (i in 1:100){
-  
-  result <- WCSPP_Node_risk_C(obs_info_all[[i]])
- 
-    result_WCSPP_risk_C[i ,1] <- result[[i]]$Length_total
-    result_WCSPP_risk_C[i ,2] <- result[[i]]$Cost_total
-    result_WCSPP_risk_C[i ,3] <- length(result[[i]]$Disambiguate_state)
-    result_WCSPP_risk_C[i ,4] <- result[[i]]$LU_diff[1]
-    result_WCSPP_risk_C[i ,5] <- result[[i]]$LU_diff[2]
-    result_WCSPP_risk_C[i ,6] <- result[[i]]$LU_diff[3]
-    result_WCSPP_risk_C[i ,7] <- result[[i]]$LU_diff[4]
+for (i in 1:10){
+  obs_info_all_use <- obs_info_all[(10*(i-1)+1):(10*i)]
+  result <- parLapply(cl,obs_info_all_use,WCSPP_Node_risk_C)
+  for (j in 1:10){
+    result_WCSPP_risk_C[10*(i-1)+j,1] <- result[[j]]$Length_total
+    result_WCSPP_risk_C[10*(i-1)+j,2] <- result[[j]]$Cost_total
+    result_WCSPP_risk_C[10*(i-1)+j,3] <- length(result[[j]]$Disambiguate_state)
+    result_WCSPP_risk_C[10*(i-1)+j,4] <- result[[j]]$LU_diff[1]
+    result_WCSPP_risk_C[10*(i-1)+j,5] <- result[[j]]$LU_diff[2]
+    result_WCSPP_risk_C[10*(i-1)+j,6] <- result[[j]]$LU_diff[3]
+    result_WCSPP_risk_C[10*(i-1)+j,7] <- result[[j]]$LU_diff[4]
     write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_80_10.csv"))
-  
+  }
 }
-
+stopCluster(cl)
 
 
