@@ -2,7 +2,7 @@
 cat("Working directory:", getwd(), "\n")
 
 # Set up and confirm output folder
-output_dir <- file.path(getwd(), "outputs/script3")
+output_dir <- file.path(getwd(), "outputs/script31")
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 cat("Created directory:", output_dir, "\n")
 
@@ -566,15 +566,9 @@ Simple_Node_Eliminate_modified2 <- function(G, s, t, W){
 
 
 
-
-
-
-
-
-
-#20-6
+#40-6
 # Generate Obstacle information
-obs_info_all1 <- read.csv('obs_info_all_20.csv')
+obs_info_all1 <- read.csv('obs_info_all_40.csv')
 obs_info_all <- list()
 for(i in 1:100){
   obs_info_all[[i]] <- obs_info_all1[(5*(i-1)+1):(5*(i-1)+5)]
@@ -735,9 +729,8 @@ clusterEvalQ(cl, {
   library(spatial)
 })
 
-
 result_WCSPP_risk_C <- matrix(NA,ncol=7,nrow=100)
-write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_20_6.csv"))
+write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_40_6.csv"))
 for (i in 1:10){
   obs_info_all_use <- obs_info_all[(10*(i-1)+1):(10*i)]
   result <- parLapply(cl,obs_info_all_use,WCSPP_Node_risk_C)
@@ -749,12 +742,10 @@ for (i in 1:10){
     result_WCSPP_risk_C[10*(i-1)+j,5] <- result[[j]]$LU_diff[2]
     result_WCSPP_risk_C[10*(i-1)+j,6] <- result[[j]]$LU_diff[3]
     result_WCSPP_risk_C[10*(i-1)+j,7] <- result[[j]]$LU_diff[4]
-    write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_20_6.csv"))
+    write.csv(result_WCSPP_risk_C, file = file.path(output_dir, "result_WCSPP_risk_C_40_6.csv"))
   }
 }
 stopCluster(cl)
-
-
 
 
 
